@@ -30,41 +30,39 @@ Clone the repository:
 ```bash
 git clone https://github.com/TanmayShikhare/civic-llm-agent.git
 cd civic-llm-agent
-bash'''
+```bash
+
 Install dependencies:
 
-bash
-Copy code
+```bash
 pip install -r requirements.txt
+
 Add your API keys:
 Create a .env file with:
 
-bash
-Copy code
+```bash
 OPENAI_API_KEY=sk-...
 TAVILY_API_KEY=tv-...
+
 🚀 Usage
 Run the chatbot locally with Gradio:
 
-bash
-Copy code
+```bash
 python3 gradio_app.py
+
 🧪 Evaluation
 We provide a lightweight test suite to check reasoning, citations, and refusals.
 
 Run evaluation:
 
-bash
-Copy code
+```bash
 python3 run_eval.py --tests tests.yaml --out eval_results.json
 Score results:
 
-bash
-Copy code
 python3 score_eval.py --tests tests.yaml --results eval_results.json
+
 📂 File Structure
-bash
-Copy code
+
 civic-llm-agent/
 ├── agent.py          # Core reasoning pipeline (interpret, plan, retrieve, answer)
 ├── gradio_app.py     # Web UI with Gradio
@@ -76,17 +74,15 @@ civic-llm-agent/
 ├── requirements.txt  # Python dependencies
 └── README.md         # Documentation
 ⚠️ Limitations
+
 Focused only on civic & political questions
-
 Retrieval depends on Tavily coverage
-
 Not guaranteed to be fully comprehensive or free of bias
 
 📜 License
 MIT License — free to use and modify.
 
-pgsql
-Copy code
+
 
 
 📜 License
