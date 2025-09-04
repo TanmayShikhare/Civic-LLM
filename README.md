@@ -40,22 +40,26 @@ OPENAI_API_KEY=sk-...
 TAVILY_API_KEY=tv-...
 ```
 
-🚀 Usage
+## 🚀 Usage
+
 Run the chatbot locally with Gradio:
+
 ```bash
 python3 gradio_app.py
 ```
 
-🧪 Evaluation
+## 🧪 Evaluation
 
 Run evaluation and scoring to check reasoning, citations, and refusals:
+
 ```bash
 python3 run_eval.py --tests tests.yaml --out eval_results.json
 python3 score_eval.py --tests tests.yaml --results eval_results.json
 ```
 
-##📂 File Structure
-```bash
+## 📂 File Structure
+
+```
 civic-llm-agent/
 ├── agent.py          # Core reasoning pipeline (interpret, plan, retrieve, answer)
 ├── gradio_app.py     # Web UI with Gradio
@@ -68,11 +72,12 @@ civic-llm-agent/
 └── README.md         # Documentation
 ```
 
-⚠️ Limitations
-Focused only on civic & political questions
-Retrieval depends on Tavily coverage
-Not guaranteed to be fully comprehensive or free of bias
+## ⚠️ Limitations
 
-📜 License
+- Focused only on civic & political questions  
+- Retrieval depends on Tavily coverage  
+- Not guaranteed to be fully comprehensive or free of bias  
+
+## 📜 License
 
 MIT License — free to use and modify.
