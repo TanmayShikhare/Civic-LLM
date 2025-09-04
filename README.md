@@ -28,9 +28,11 @@ cd civic-llm-agent
 
 Install dependencies:
 pip install -r requirements.txt
+##
 
 Create a .env file in the repo root:
 
+##
 OPENAI_API_KEY=sk-...
 TAVILY_API_KEY=tv-...
 
