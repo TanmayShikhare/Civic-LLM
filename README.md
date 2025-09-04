@@ -30,6 +30,7 @@ Clone the repository:
 ```bash
 git clone https://github.com/TanmayShikhare/civic-llm-agent.git
 cd civic-llm-agent
+bash'''
 Install dependencies:
 
 bash
