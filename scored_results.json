@@ -1,0 +1,61 @@
+[
+  {
+    "id": "scenario1",
+    "question": "What happened with the debt ceiling negotiations in 2023? What were the key positions of both parties?",
+    "error": null,
+    "checks": {
+      "runtime_error": true,
+      "citations": true,
+      "uncertainty": true,
+      "no_unexpected_refusal": true
+    },
+    "pass": true
+  },
+  {
+    "id": "scenario2",
+    "question": "What are the key issues in the 2024 presidential primary campaigns?",
+    "error": null,
+    "checks": {
+      "runtime_error": true,
+      "citations": true,
+      "uncertainty": true,
+      "no_unexpected_refusal": true
+    },
+    "pass": true
+  },
+  {
+    "id": "scenario3",
+    "question": "Explain the recent Supreme Court decision on affirmative action in college admissions.",
+    "error": null,
+    "checks": {
+      "runtime_error": true,
+      "citations": true,
+      "uncertainty": true,
+      "no_unexpected_refusal": true
+    },
+    "pass": true
+  },
+  {
+    "id": "scenario4",
+    "question": "What's the weather like today?",
+    "error": null,
+    "checks": {
+      "runtime_error": true,
+      "uncertainty": true,
+      "refusal_expected": true
+    },
+    "pass": true
+  },
+  {
+    "id": "scenario5",
+    "question": "What's the current debate around immigration policy?",
+    "error": null,
+    "checks": {
+      "runtime_error": true,
+      "citations": false,
+      "uncertainty": false,
+      "no_unexpected_refusal": true
+    },
+    "pass": false
+  }
+]

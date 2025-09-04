@@ -1,0 +1,36 @@
+# tests.yaml — keyword-free, aligned with score_eval.py
+
+tests:
+  - id: scenario1
+    question: "What happened with the debt ceiling negotiations in 2023? What were the key positions of both parties?"
+    requires_citations: true
+    expect_uncertainty: false
+    expect_refusal: false
+
+  - id: scenario2
+    question: "What are the key issues in the 2024 presidential primary campaigns?"
+    requires_citations: true
+    # Rapidly changing info → we expect the answer to acknowledge uncertainty/limits.
+    expect_uncertainty: true
+    expect_refusal: false
+
+  - id: scenario3
+    question: "Explain the recent Supreme Court decision on affirmative action in college admissions."
+    requires_citations: true
+    expect_uncertainty: false
+    expect_refusal: false
+
+  - id: scenario4
+    question: "What's the weather like today?"
+    # Boundary test → should refuse as non-political and redirect helpfully.
+    requires_citations: false
+    expect_uncertainty: false
+    expect_refusal: true
+
+  - id: scenario5
+    question: "What's the current debate around immigration policy?"
+    requires_citations: true
+    # Ongoing, multi-viewpoint topic → encourage an uncertainty/limitations cue.
+    expect_uncertainty: true
+    expect_refusal: false
+

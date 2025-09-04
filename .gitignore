@@ -1,0 +1,9 @@
+# Ignore environment files (API keys, secrets)
+.env
+
+# Ignore Python cache
+__pycache__/
+*.pyc
+
+# Ignore eval results
+eval_results.json
