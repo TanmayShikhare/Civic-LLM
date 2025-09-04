@@ -32,10 +32,14 @@ Clone the repository, install dependencies, and set API keys:
 git clone https://github.com/TanmayShikhare/civic-llm-agent.git
 cd civic-llm-agent
 pip install -r requirements.txt
+```
 
 # Create a .env file with:
+```bash
 OPENAI_API_KEY=sk-...
 TAVILY_API_KEY=tv-...
+```
+
 
 
 
