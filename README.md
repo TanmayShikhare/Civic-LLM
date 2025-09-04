@@ -1,115 +1,92 @@
-# Civic LLM — Political Events Chatbot  
+# Civic LLM — Political Events Chatbot
 
-A **reasoning-first chatbot** that answers questions about political and civic events.  
-It interprets user intent, plans evidence queries, retrieves authoritative sources, and produces **grounded answers with inline citations**.  
-
----
-
-## ✨ Features  
-
-- **Reasoning-first pipeline**: Interpret → Plan → Retrieve → Answer  
-- **Model mixing**: use different OpenAI models for interpretation, planning, and answering  
-- **Summarized conversation history**: preserves context without runaway token usage  
-- **Retrieval grounding**: uses the Tavily API to fetch evidence from authoritative sites (`.gov`, congress.gov, CRS, etc.)  
-- **Adaptive answer styles**: narrative, bullets, comparisons, or party positions depending on the query  
-- **Citation enforcement**: every factual claim carries inline numeric citations `[1]`  
-- **Neutrality**: perspectives are balanced, avoiding bias or rigid templates  
-- **Non-political guardrail**: if the question is outside politics, the model politely declines and suggests reframing  
+A reasoning-first chatbot for political & civic questions.  
+It interprets user intent, plans evidence queries, retrieves authoritative sources, and writes grounded answers with inline citations.
 
 ---
 
-## ⚙️ Installation  
+## ✨ Features
+- **Reasoning pipeline**: Interpret → Plan → Retrieve → Answer  
+- **Model mixing**: different OpenAI models can be used for interpretation, planning, and answering  
+- **Summarized history**: keeps conversation context without runaway token usage  
+- **Retrieval grounding**: uses Tavily API to fetch evidence from authoritative sites (`.gov`, congress.gov, CRS, etc.)  
+- **Adaptive answer styles**: narrative, bullets, comparisons, or party positions depending on the question  
+- **Citation enforcement**: factual sentences use inline numeric citations `[1]`  
+- **Neutrality**: perspectives are balanced, avoiding bias and templates  
+- **Non-political guardrail**: if the question is outside politics, the model politely redirects  
 
-Clone the repository:  
+---
+
+## ✅ Requirements
+- Python 3.9+  
+- OpenAI API key  
+- Tavily API key  
+
+---
+
+## ⚙️ Installation
+
+Clone the repository:
 ```bash
 git clone https://github.com/TanmayShikhare/civic-llm-agent.git
 cd civic-llm-agent
-
-
 Install dependencies:
+
+bash
+Copy code
 pip install -r requirements.txt
+Add your API keys:
+Create a .env file with:
 
----
-##Create a .env file in the repo root:
-
-##
+bash
+Copy code
 OPENAI_API_KEY=sk-...
 TAVILY_API_KEY=tv-...
+🚀 Usage
+Run the chatbot locally with Gradio:
 
-# Optional model overrides
-OPENAI_MODEL=gpt-4o-mini
-OPENAI_MODEL_INTERPRET=gpt-4o-mini
-OPENAI_MODEL_PLAN=gpt-4o-mini
-OPENAI_MODEL_ANSWER=gpt-4o-mini
-
----
-
-# Optional behavior knobs
-MAX_HISTORY_TURNS=12
-SUMMARY_TRIGGER_TURNS=16
-HISTORY_SUMMARY_BUDGET_CHARS=1600
-ANSWER_MAX_TOKENS=650
----
-
-##
-🚀 Usage (Gradio UI)
+bash
+Copy code
 python3 gradio_app.py
----
-
-##
 🧪 Evaluation
+We provide a lightweight test suite to check reasoning, citations, and refusals.
 
-Run scenarios and save raw outputs:
+Run evaluation:
+
+bash
+Copy code
 python3 run_eval.py --tests tests.yaml --out eval_results.json
+Score results:
 
-Score them:
+bash
+Copy code
 python3 score_eval.py --tests tests.yaml --results eval_results.json
-
----
-
-##
-🔧 Configuration Notes
-
-Models can be mixed via env vars (OPENAI_MODEL_*).
-
-History is summarized beyond MAX_HISTORY_TURNS to control cost.
-
-Citations are enforced post-generation if missing.
-----
-
-##
 📂 File Structure
+bash
+Copy code
 civic-llm-agent/
-├── agent.py          # Core pipeline (interpret, plan, retrieve, answer)
-├── gradio_app.py     # Simple Gradio UI (chat + sources)
+├── agent.py          # Core reasoning pipeline (interpret, plan, retrieve, answer)
+├── gradio_app.py     # Web UI with Gradio
 ├── prompts.py        # Prompt templates for interpret & plan
-├── tools.py          # Tavily wrapper, reliability scoring, safe JSON parser
+├── tools.py          # Helper functions (Tavily search, reliability scoring, JSON parse)
 ├── run_eval.py       # Runs evaluation scenarios
-├── score_eval.py     # Scores eval outputs (citations, refusal, uncertainty)
+├── score_eval.py     # Scores evaluation outputs
 ├── tests.yaml        # Test scenarios
 ├── requirements.txt  # Python dependencies
-└── README.md         # This file
-----
-
-##
-🛠️ Troubleshooting
-
-Missing API key: set OPENAI_API_KEY and TAVILY_API_KEY in .env, then restart.
-
-Citations missing: the answer step post-checks and repairs; if it still fails, tighten the query or provide clearer timeframe/entities.
-
-Slow retrieval: Tavily calls are sequential for reliability—reduce queries in agent.py if needed.
-----
-
-##
+└── README.md         # Documentation
 ⚠️ Limitations
+Focused only on civic & political questions
 
-Focused on civic/political topics (will gently refuse off-topic).
+Retrieval depends on Tavily coverage
 
-Retrieval quality depends on Tavily coverage.
+Not guaranteed to be fully comprehensive or free of bias
 
-Not a substitute for legal advice or official guidance.
-----
+📜 License
+MIT License — free to use and modify.
+
+pgsql
+Copy code
+
 
 📜 License
 
